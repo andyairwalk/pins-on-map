@@ -6,6 +6,7 @@ var locations = [
 ['Maroubra Beach', -33.950198, 151.259302, 1]
 ];
 
+// Center the map
 var map = new google.maps.Map(document.getElementById('map'), {
 	zoom: 10,
 	center: new google.maps.LatLng(-33.92, 151.25),
@@ -16,6 +17,7 @@ var infowindow = new google.maps.InfoWindow();
 
 var marker, i;
 
+// Add pins on the map
 for (i = 0; i < locations.length; i++) {  
 	marker = new google.maps.Marker({
 		position: new google.maps.LatLng(locations[i][1], locations[i][2]),
@@ -29,3 +31,20 @@ for (i = 0; i < locations.length; i++) {
 		}
 	})(marker, i));
 }
+
+
+// test
+
+$("body").on("click", "#test-add-button", function(){
+	marker = new google.maps.Marker({
+		position: new google.maps.LatLng(0, 0),
+		map: map
+	});
+
+	google.maps.event.addListener(marker, 'click', (function(marker) {
+		return function() {
+			infowindow.setContent("test something");
+			infowindow.open(map, marker);
+		}
+	})(marker));
+});
