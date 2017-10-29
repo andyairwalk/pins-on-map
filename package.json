@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/andyairwalk/pins-on-map/issues"
   },
-  "homepage": "https://github.com/andyairwalk/pins-on-map#readme"
+  "homepage": "https://github.com/andyairwalk/pins-on-map#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
 }
