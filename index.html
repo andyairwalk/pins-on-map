@@ -3,14 +3,26 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Pins on a map</title>
-	<link rel="stylesheet" href="dist/css/main.css">
+	<link rel="stylesheet" href="dist/css/main.min.css">
 	<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
 </head>
 <body>
 	<h1>hello!</h1>
 	<div id="map" style="width: 100%; height: 500px;"></div>
-	<button id="test-add-button">test</button>
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>
+	<button id="test-add-button">add pin</button>
+
+	<form id="form">
+		Name:
+		<input type="text" id="name" name="name">
+		Lat:
+		<input type="text" id="lat" name="lat">
+		Lng:
+		<input type="text" id="lng" name="lng">
+
+		<input type="submit" value="Submit">
+	</form>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 	<script src="dist/js/main.js"></script>
 </body>
 </html>
