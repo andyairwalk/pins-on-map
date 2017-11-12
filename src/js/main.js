@@ -38,6 +38,12 @@ $("body").on("submit", "#form", function(e){
 	var lat = $("#lat").val();
 	var lng = $("#lng").val();
 
+	addPinOnTheMap(name, lat, lng);
+	addPinOnTheDatabase(name, lat, lng);
+	
+});
+
+function addPinOnTheMap(name, lat, lng) {
 	marker = new google.maps.Marker({
 		position: new google.maps.LatLng(lat, lng),
 		map: map
@@ -49,7 +55,9 @@ $("body").on("submit", "#form", function(e){
 			infowindow.open(map, marker);
 		}
 	})(marker));
+}
 
+function addPinOnTheDatabase(name, lat, lng) {
 	$.ajax({
 		url: "https://api.mongolab.com/api/1/databases/locations/collections/pins?apiKey=LgEjQO7xxGnnfoqMELFaVQ1TuPuVkDw7",
 		data: JSON.stringify({
@@ -70,5 +78,7 @@ $("body").on("submit", "#form", function(e){
 			console.log(status);
 			console.log(err);
 		}
-	})
-});
+	});
+}
+
+console.log("13");
