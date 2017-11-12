@@ -9,15 +9,14 @@
 <body>
 	<h1>hello!</h1>
 	<div id="map" style="width: 100%; height: 500px;"></div>
-	<button id="test-add-button">add pin</button>
 
 	<form id="form">
 		Name:
 		<input type="text" id="name" name="name">
 		Lat:
-		<input type="text" id="lat" name="lat">
+		<input type="number" id="lat" name="lat" min="-90" max="90">
 		Lng:
-		<input type="text" id="lng" name="lng">
+		<input type="number" id="lng" name="lng" min="-180" max="180">
 
 		<input type="submit" value="Submit">
 	</form>
