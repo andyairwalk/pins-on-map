@@ -81,4 +81,37 @@ function addPinOnTheDatabase(name, lat, lng) {
 	});
 }
 
-console.log("13");
+var geocoder = new google.maps.Geocoder();
+$('#target-button').on('click', function(event) {
+	event.preventDefault();
+	geocodeAddress(geocoder, map);
+});
+
+// geocoder
+function geocodeAddress(geocoder, resultsMap) {
+	var address1 = $( "input[name='address1']" ).val();
+	var postcode = $( "input[name='postcode']" ).val();
+	var city = $( "input[name='city']" ).val();
+	var country = ''; 
+	// $( "input[name='country']" ).val();
+
+	var address = address1 +' '+ postcode +' '+ city +' '+ country;
+	  
+	geocoder.geocode({'address': address}, function(results, status) {
+		if (status === google.maps.GeocoderStatus.OK) {
+			resultsMap.setCenter(results[0].geometry.location);
+			var marker = new google.maps.Marker({
+				map: resultsMap,
+				position: results[0].geometry.location
+			});
+
+			$( "input[name='lat']" ).val(results[0].geometry.location.lat());
+			$( "input[name='lng']" ).val(results[0].geometry.location.lng());
+
+		} else {
+		  console.error('Geocode was not successful for the following reason: ' + status);
+		}
+	});
+}
+
+console.log("test number: 13");

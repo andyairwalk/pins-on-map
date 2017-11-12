@@ -7,19 +7,22 @@
 	<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
 </head>
 <body>
-	<h1>hello!</h1>
-	<div id="map" style="width: 100%; height: 500px;"></div>
+	<div class="main-container">
+		<div id="map" style="width: 100%; height: 500px;"></div>
 
-	<form id="form">
-		Name:
-		<input type="text" id="name" name="name">
-		Lat:
-		<input type="number" id="lat" name="lat" min="-90" max="90">
-		Lng:
-		<input type="number" id="lng" name="lng" min="-180" max="180">
+		<form id="form">
+			<input type="text" name="name" id="name" class="form-control" placeholder="Name">
+			<input type="text" name="address1" class="form-control" placeholder="Address1">
+			<input type="text" name="postcode" class="form-control" placeholder="Postcode">
+			<input type="text" name="city" class="form-control" placeholder="City">
+			<input type="number" id="lat" name="lat" class="form-control" min="-90" max="90" placeholder="Latitude">
+			<input type="number" id="lng" name="lng" class="form-control" min="-180" max="180" placeholder="Longitude">
 
-		<input type="submit" value="Submit">
-	</form>
+			<button id="target-button" class="btn">&target;</button>
+
+			<input type="submit" value="Submit" class="btn">
+		</form>
+	</div>
 
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 	<script src="dist/js/main.js"></script>
